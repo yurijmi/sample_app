@@ -9,22 +9,22 @@
 
         <div class="form-group">
           <%= f.label :name, class: 'control-label' %>
-          <%= f.text_field :name, class: 'form-control', placeholder: 'John Doe' %>
+          <%= f.text_field :name, class: 'form-control input-lg', placeholder: 'John Doe' %>
         </div>
 
         <div class="form-group">
           <%= f.label :email, class: 'control-label' %>
-          <%= f.text_field :email, class: 'form-control', placeholder: 'john@doe.com' %>
+          <%= f.text_field :email, class: 'form-control input-lg', placeholder: 'john@doe.com' %>
         </div>
 
         <div class="form-group">
           <%= f.label :password, class: 'control-label' %>
-          <%= f.password_field :password, class: 'form-control', placeholder: '•' * 6 %>
+          <%= f.password_field :password, class: 'form-control input-lg', placeholder: '•' * 6 %>
         </div>
 
         <div class="form-group">
           <%= f.label :password_confirmation, "Confirmation", class: 'control-label' %>
-          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: '•' * 6 %>
+          <%= f.password_field :password_confirmation, class: 'form-control input-lg', placeholder: '•' * 6 %>
         </div>
 
         <%= f.submit "Create my account", class: "btn btn-lg btn-primary" %>

@@ -157,3 +157,14 @@ aside {
     font-size: 1.3em;
   }
 }
+
+.edit_user {
+  .gravatar {
+    float: none;
+  }
+
+  .btn {
+    position: absolute;
+    margin-top: 5px;
+  }
+}

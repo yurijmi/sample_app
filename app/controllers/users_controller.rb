@@ -38,6 +38,11 @@ class UsersController < ApplicationController
   private
 
     def signed_in_user
-      redirect_to signin_url, notice: "Please sign in." unless signed_in?
+      if signed_in?
+
+      else
+        flash[:warning] = "Please sign in."
+        redirect_to signin_url
+      end
     end
 end

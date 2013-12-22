@@ -42,6 +42,7 @@ class UsersController < ApplicationController
       if signed_in?
 
       else
+        store_location
         flash[:warning] = "Please sign in."
         redirect_to signin_url
       end

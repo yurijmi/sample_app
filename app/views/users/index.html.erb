@@ -1,0 +1,22 @@
+<% provide(:title, 'All users') %>
+<div class="center">
+  <h1>All users</h1>
+
+  <div class="users">
+    <ul class="media-list col-md-offset-5 col-md-2">
+      <% @users.each do |user| %>
+          <li class="media">
+            <%= link_to gravatar_for(
+                                user,
+                                size: 52,
+                                class: 'media-object'),
+                        user,
+                        class: 'pull-left' %>
+            <div class="media-body">
+              <h3 class="media-heading"><%= link_to user.name, user %></h3>
+            </div>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -45,8 +45,10 @@ class UsersController < ApplicationController
   def destroy
     user = User.find(params[:id])
 
-    if user.admin?
+    if current_user?(user)
       flash[:danger] = "Sorry, but you can't destroy yourself"
+    elsif user.admin?
+      flash[:danger] = "Sorry, but you can't destroy other admins"
     else
       user.destroy
       flash[:success] = "User destroyed"

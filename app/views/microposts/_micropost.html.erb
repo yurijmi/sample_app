@@ -1,0 +1,8 @@
+<article class="list-group-item active">
+  <p class="list-group-item-text">
+    <%= micropost.content %>
+  </p>
+  <span class="list-group-item-heading">
+    Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+  </span>
+</article>

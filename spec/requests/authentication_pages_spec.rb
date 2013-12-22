@@ -80,6 +80,11 @@ describe "Authentication" do
           specify { response.should redirect_to(signin_path) }
         end
 
+        describe "visiting the user index" do
+          before { visit users_path }
+          it { should have_selector('title', text: 'Sign in') }
+        end
+
         describe "as wrong user" do
           let(:user) { FactoryGirl.create(:user) }
           let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }

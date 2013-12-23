@@ -60,16 +60,6 @@ class UsersController < ApplicationController
 
   private
 
-    def signed_in_user
-      if signed_in?
-
-      else
-        store_location
-        flash[:warning] = "Please sign in."
-        redirect_to signin_url
-      end
-    end
-
     def guest
       if signed_in?
         redirect_to root_path

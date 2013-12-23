@@ -34,6 +34,6 @@ namespace :db do
       print '.'
     end
 
-    print "\nDone!\n\n"
+    print "\nDone!"
   end
 end

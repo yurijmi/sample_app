@@ -1,8 +1,10 @@
 <article class="list-group-item">
-  <p class="list-group-item-text content">
-    <%= micropost.content %>
-  </p>
-  <span class="list-group-item-text timestamp">
-    Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-  </span>
+  <section>
+    <p class="list-group-item-text">
+      <%= micropost.content %>
+    </p>
+    <span class="list-group-item-text">
+      Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+    </span>
+  </section>
 </article>

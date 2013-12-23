@@ -169,7 +169,7 @@ aside {
   }
 }
 
-.micropost_form {
+.micropost {
   resize: none;
 }
 
@@ -177,22 +177,24 @@ aside {
   padding-bottom: 4em;
 }
 
-.micropost {
-  aside {
-    padding-left: 0;
-  }
-
-  section {
-    h4 {
-      padding-bottom: 0.3em;
+.microposts {
+  article {
+    aside {
+      padding-left: 0;
     }
 
-    p {
-      padding-bottom: 0.5em;
-    }
+    section {
+      h4 {
+        padding-bottom: 0.3em;
+      }
 
-    span {
-      font-style: italic;
+      p {
+        padding-bottom: 0.5em;
+      }
+
+      span {
+        font-style: italic;
+      }
     }
   }
 }

@@ -35,6 +35,5 @@ namespace :db do
     end
 
     print "\nDone!\n\n"
-    print 'Finished all sample_data tasks!'
   end
 end

@@ -1,0 +1,16 @@
+<article class="list-group-item micropost" id="<%= feed_item.id %>">
+  <aside class="col-md-1">
+    <%= link_to gravatar_for(feed_item.user, size: 52), feed_item.user %>
+  </aside>
+  <section class="col-md-offset-1">
+    <h4 class="list-group-item-heading user">
+      <%= link_to feed_item.user.name, feed_item.user %>
+    </h4>
+    <p class="list-group-item-text content">
+      <%= feed_item.content %>
+    </p>
+    <span class="list-group-item-text timestamp">
+      Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+    </span>
+  </section>
+</article>

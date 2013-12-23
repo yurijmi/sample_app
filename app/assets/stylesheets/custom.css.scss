@@ -169,10 +169,32 @@ aside {
   }
 }
 
-.micropost {
+.micropost_form {
   resize: none;
 }
 
 .user-info {
   padding-bottom: 4em;
+}
+
+.micropost {
+  .gravatar {
+    padding: 0;
+  }
+
+  /*section {
+    display: inline-block;
+
+    h4 {
+      padding-bottom: 0.3em;
+    }
+
+    p {
+      padding-bottom: 0.5em;
+    }
+
+    span {
+      font-style: italic;
+    }
+  }*/
 }

@@ -2,7 +2,7 @@
     <%= render 'shared/error_messages', object: f.object %>
 
     <div class="form-group">
-      <%= f.text_area :content, class: 'form-control micropost', rows: 7, placeholder: "Compose new micropost..." %>
+      <%= f.text_area :content, class: 'form-control micropost_form', rows: 7, placeholder: "Compose new micropost..." %>
     </div>
 
     <%= f.submit 'Post', class: 'btn btn-lg btn-primary' %>

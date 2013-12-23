@@ -21,6 +21,10 @@ module SessionsHelper
     user == current_user
   end
 
+  def is_admin?(user)
+    user.admin? unless user.nil?
+  end
+
   def signed_in_user
     if signed_in?
 

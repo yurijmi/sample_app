@@ -11,7 +11,7 @@
     </p>
     <span class="list-group-item-text">
       Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
-      <% if current_user?(feed_item.user) || current_user.admin? %>
+      <% if current_user?(feed_item.user) || is_admin?(current_user) %>
           <%= link_to "delete", feed_item, method: :delete,
                       data: { confirm: 'Are you sure?' },
                       title: feed_item.content,

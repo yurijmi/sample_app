@@ -6,9 +6,9 @@
     <span class="list-group-item-text">
       Posted <%= time_ago_in_words(micropost.created_at) %> ago.
       <% if current_user?(micropost.user) || is_admin?(current_user) %>
-          <%= link_to "delete", micropost, method: :delete,
+          <%= link_to 'delete', micropost, method: :delete,
                       data: { confirm: 'Are you sure?' },
-                      title: micropost.content,
+                      title: 'Delete this micropost',
                       class: 'label label-danger' %>
       <% end %>
     </span>

@@ -1,7 +1,7 @@
 <article class="list-group-item">
   <section>
     <p class="list-group-item-text">
-      <%= micropost.content %>
+      <%= wrap(micropost.content) %>
     </p>
     <span class="list-group-item-text">
       Posted <%= time_ago_in_words(micropost.created_at) %> ago.

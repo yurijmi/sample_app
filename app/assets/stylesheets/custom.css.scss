@@ -178,13 +178,11 @@ aside {
 }
 
 .micropost {
-  .gravatar {
-    padding: 0;
+  aside {
+    padding-left: 0;
   }
 
-  /*section {
-    display: inline-block;
-
+  section {
     h4 {
       padding-bottom: 0.3em;
     }
@@ -196,5 +194,15 @@ aside {
     span {
       font-style: italic;
     }
-  }*/
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  a {
+    text-decoration: none;
+
+    &:hover, &:visited, &:active {
+      text-decoration: none;
+    }
+  }
 }

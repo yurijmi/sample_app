@@ -1,6 +1,6 @@
 <article class="list-group-item micropost" id="<%= feed_item.id %>">
   <aside class="col-md-1">
-    <%= link_to gravatar_for(feed_item.user, size: 52), feed_item.user %>
+    <%= link_to gravatar_for(feed_item.user, size: 52), feed_item.user, class: 'pull-left' %>
   </aside>
   <section class="col-md-offset-1">
     <h4 class="list-group-item-heading user">

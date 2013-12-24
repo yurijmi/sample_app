@@ -14,14 +14,10 @@
         <% end %>
       </section>
   <% end %>
-  <% if signed_in? %>
-      <section>
-        <%= render 'users/follow_form' %>
-      </section>
-  <% end %>
-  <% if current_page?(root_url) %>
-      <section>
-        <%= render 'shared/micropost_form' %>
-      </section>
-  <% end %>
+  <section>
+    <%= render 'users/follow_form' %>
+  </section>
+  <section>
+    <%= render 'shared/micropost_form' %>
+  </section>
 </aside>

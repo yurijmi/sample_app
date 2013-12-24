@@ -1,5 +1,23 @@
 <div class="row">
-  <%= render 'shared/user_sidebar' %>
+  <aside class="col-md-4">
+    <section>
+      <%= render 'shared/user_info', user: @user %>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+    <% @users = get_followers(@user) %>
+    <% if @users.any? %>
+        <section class="user_avatars">
+          <% @users.each do |user| %>
+              <%= link_to gravatar_for(user, size: 30), user %>
+          <% end %>
+        </section>
+    <% end %>
+    <section>
+      <%= render 'shared/micropost_form' %>
+    </section>
+  </aside>
   <div class="col-md-8 microposts">
     <h2>Micropost Feed</h2>
     <%= render 'shared/feed' %>

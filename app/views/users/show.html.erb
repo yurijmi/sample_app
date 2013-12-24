@@ -13,7 +13,7 @@
   </aside>
   <div class="col-md-8 microposts">
     <% if @user.microposts.any? %>
-        <h3>Microposts (<%= @user.microposts.count %>)</h3>
+        <h2>Microposts (<%= @user.microposts.count %>)</h2>
         <div class="list-group">
           <%= render @microposts %>
         </div>

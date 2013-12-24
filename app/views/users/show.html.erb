@@ -1,16 +1,6 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="col-md-4">
-    <section>
-      <%= render 'shared/user_info', user: @user %>
-    </section>
-    <section>
-      <%= render 'shared/stats' %>
-    </section>
-    <section>
-      <%= render 'follow_form' if signed_in? %>
-    </section>
-  </aside>
+  <%= render 'shared/user_sidebar' %>
   <div class="col-md-8 microposts">
     <% if @user.microposts.any? %>
         <h2>Microposts (<%= @user.microposts.count %>)</h2>

@@ -1,12 +1,17 @@
 <% provide(:title, 'All users') %>
-<div class="center">
-  <h1>All users</h1>
+<div class="row">
+  <%= render 'shared/user_sidebar' %>
+  <div class="col-md-8">
+    <section>
+      <h2>All users</h2>
 
-  <%= will_paginate %>
+      <%= will_paginate class: 'center' %>
 
-  <div class="users">
-    <ul class="media-list col-md-offset-5 col-md-2">
-      <%= render @users %>
-    </ul>
+      <div class="users">
+        <ul class="media-list col-md-offset-4 col-md-4">
+          <%= render @users %>
+        </ul>
+      </div>
+    </section>
   </div>
 </div>

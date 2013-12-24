@@ -1,0 +1,13 @@
+<% provide(:title, @title) %>
+<div class="row">
+  <%= render 'shared/user_sidebar' %>
+  <div class="col-md-8">
+    <h3><%= @title %></h3>
+    <% if @users.any? %>
+        <ul class="users">
+          <%= render @users %>
+        </ul>
+        <%= will_paginate %>
+    <% end %>
+  </div>
+</div>

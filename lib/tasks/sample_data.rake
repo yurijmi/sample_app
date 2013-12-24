@@ -9,13 +9,13 @@ namespace :db do
     make_microposts
     print "\n"
     make_relationships
-    print "\n"
+    print "\n\n"
     print 'Done!'
   end
 end
 
 def make_users
-  print 'Creating Users'
+  print 'Creating users'
 
   admin = User.create!(name: 'Yurijmi',
                        email: 'me@yurijmi.ru',

@@ -1,6 +1,24 @@
 <% provide(:title, @title) %>
 <div class="row">
-  <%= render 'shared/user_sidebar' %>
+  <aside class="col-md-4">
+    <section>
+      <%= render 'shared/user_info', user: @user %>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+    <% followers = get_followers(@user) %>
+    <% if followers.any? %>
+        <section class="user_avatars">
+          <% followers.each do |follower| %>
+              <%= link_to gravatar_for(follower, size: 30), follower %>
+          <% end %>
+        </section>
+    <% end %>
+    <section>
+      <%= render 'users/follow_form' %>
+    </section>
+  </aside>
   <div class="col-md-8">
     <h3><%= @title %></h3>
     <% if @users.any? %>

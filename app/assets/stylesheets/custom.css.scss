@@ -173,10 +173,6 @@ aside {
   resize: none;
 }
 
-.user-info {
-  padding-bottom: 4em;
-}
-
 .microposts {
   article {
     aside {
@@ -211,4 +207,32 @@ h1, h2, h3, h4, h5, h6 {
 
 .pagination {
   margin-top: 0;
+}
+
+.stats {
+  overflow: auto;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
 }

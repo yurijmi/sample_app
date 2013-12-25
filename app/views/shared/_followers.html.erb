@@ -1,0 +1,6 @@
+<% followers = get_followers(@user) %>
+<% if followers.any? %>
+    <% followers.each do |follower| %>
+        <%= link_to gravatar_for(follower, size: 30), follower %>
+    <% end %>
+<% end %>

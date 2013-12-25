@@ -6,14 +6,9 @@
     <section>
       <%= render 'shared/stats' %>
     </section>
-    <% @users = get_followers(@user) %>
-    <% if @users.any? %>
-        <section class="user_avatars">
-          <% @users.each do |user| %>
-              <%= link_to gravatar_for(user, size: 30), user %>
-          <% end %>
-        </section>
-    <% end %>
+    <section class="user_avatars" id="follower_avatars">
+      <%= render 'shared/followers' %>
+    </section>
     <section>
       <%= render 'shared/micropost_form' %>
     </section>

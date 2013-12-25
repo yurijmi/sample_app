@@ -7,14 +7,9 @@
     <section>
       <%= render 'shared/stats' %>
     </section>
-    <% followers = get_followers(@user) %>
-    <% if followers.any? %>
-        <section class="user_avatars">
-          <% followers.each do |follower| %>
-              <%= link_to gravatar_for(follower, size: 30), follower %>
-          <% end %>
-        </section>
-    <% end %>
+    <section class="user_avatars" id="follower_avatars">
+      <%= render 'shared/followers' %>
+    </section>
     <section>
       <%= render 'users/follow_form' %>
     </section>

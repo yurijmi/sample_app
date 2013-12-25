@@ -1,21 +1,10 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  email      :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
-
 require 'spec_helper'
 
 describe User do
 
   before do
-    @user = User.new(name:     "Example User", email:                 "user@example.com",
-                     password: "foobar",       password_confirmation: "foobar")
+    @user = User.new(name: "Example User", email: "user@example.com",
+                     password: "foobar", password_confirmation: "foobar")
   end
 
   subject { @user }
@@ -34,7 +23,6 @@ describe User do
   it { should respond_to(:followed_users) }
   it { should respond_to(:reverse_relationships) }
   it { should respond_to(:followers) }
-  it { should respond_to(:followed_users) }
   it { should respond_to(:following?) }
   it { should respond_to(:follow!) }
   it { should respond_to(:unfollow!) }
@@ -42,11 +30,16 @@ describe User do
   it { should be_valid }
   it { should_not be_admin }
 
-  describe "with admin attribute set to 'true'" do
-    before do
-      @user.save!
-      @user.toggle!(:admin)
+  describe "accessible attributes" do
+    it "should not allow access to admin" do
+      expect do
+        User.new(admin: "1")
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
+  end
+
+  describe "with admin attribute set to 'true'" do
+    before { @user.toggle!(:admin) }
 
     it { should be_admin }
   end
@@ -56,13 +49,13 @@ describe User do
     it { should_not be_valid }
   end
 
-  describe "when name is too long" do
-    before { @user.name = "a" * 51 }
+  describe "when email is not present" do
+    before { @user.email = " " }
     it { should_not be_valid }
   end
 
-  describe "when email is not present" do
-    before { @user.email = " " }
+  describe "when name is too long" do
+    before { @user.name = "a" * 51 }
     it { should_not be_valid }
   end
 
@@ -97,16 +90,6 @@ describe User do
     it { should_not be_valid }
   end
 
-  describe "email address with mixed case" do
-    let(:mixed_case_email) { "Foo@ExAMPle.CoM" }
-
-    it "should be saved as all lower-case" do
-      @user.email = mixed_case_email
-      @user.save
-      @user.reload.email.should == mixed_case_email.downcase
-    end
-  end
-
   describe "when password is not present" do
     before { @user.password = @user.password_confirmation = " " }
     it { should_not be_valid }
@@ -122,9 +105,9 @@ describe User do
     it { should_not be_valid }
   end
 
-  describe "with a password that's too short" do
+  describe "when password is too short" do
     before { @user.password = @user.password_confirmation = "a" * 5 }
-    it { should be_invalid }
+    it { should_not be_valid }
   end
 
   describe "return value of authenticate method" do
@@ -163,9 +146,8 @@ describe User do
     end
 
     it "should destroy associated microposts" do
-      microposts = @user.microposts.dup
+      microposts = @user.microposts
       @user.destroy
-      microposts.should_not be_empty
       microposts.each do |micropost|
         Micropost.find_by_id(micropost.id).should be_nil
       end
@@ -175,10 +157,21 @@ describe User do
       let(:unfollowed_post) do
         FactoryGirl.create(:micropost, user: FactoryGirl.create(:user))
       end
+      let(:followed_user) { FactoryGirl.create(:user) }
 
-      its(:feed) { should include(newer_micropost) }
+      before do
+        @user.follow!(followed_user)
+        3.times { followed_user.microposts.create!(content: "Lorem ipsum") }
+      end
+
       its(:feed) { should include(older_micropost) }
+      its(:feed) { should include(newer_micropost) }
       its(:feed) { should_not include(unfollowed_post) }
+      its(:feed) do
+        followed_user.microposts.each do |micropost|
+          should include(micropost)
+        end
+      end
     end
   end
 
